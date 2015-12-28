@@ -70,7 +70,7 @@ class ToastView: UIView {
     }
     
     /// Toastを非表示にする
-    private func hideSelf(timer: NSTimer) {
+    internal func hideSelf(timer: NSTimer) {
         if timer.valid {
             timer.invalidate()
         }
