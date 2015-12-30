@@ -202,14 +202,6 @@ class ToastView: UIView {
         toast.addSubview(textLabel)
         toast.addSubview(imageView)
         
-        textLabel.layoutIfNeeded()
-        
-        let imageViewSize = imageView.bounds.size
-        let textLabelSize = textLabel.bounds.size
-        
-        print("Image View Size = (\(imageViewSize.width), \(imageViewSize.height))")
-        print("Text Label Size = (\(textLabelSize.width), \(textLabelSize.height))")
-        
         targetView.addSubview(toast)
         
         var constraints = [NSLayoutConstraint(item: toast, attribute: .Bottom, relatedBy: .Equal, toItem: backgroundView, attribute: .Bottom, multiplier: 1.0, constant: 0.0),
