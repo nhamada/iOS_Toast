@@ -53,5 +53,37 @@ class ViewController: UIViewController {
             return
         }
     }
+    @IBAction func onTopButtonTapped(sender: UIButton) {
+        showToastWithImage(.Top)
+    }
+    @IBAction func onBottomButtonTapped(sender: UIButton) {
+        showToastWithImage(.Bottom)
+    }
+    @IBAction func onLeftButtonTapped(sender: UIButton) {
+        showToastWithImage(.Left)
+    }
+    @IBAction func onRightButtonTapped(sender: UIButton) {
+        showToastWithImage(.Right)
+    }
+    
+    /// MARK: - helper
+    func showToastWithImage(imagePostion: ToastImagePosition) {
+        guard let image = UIImage(named: "SampleImage") else {
+            print("Failed to load image data")
+            return
+        }
+        guard let textForToast = toastTextField.text else {
+            guard let _ = ToastView.showText("Please input text!", image: image, imagePosition: imagePostion) else {
+                print("Failed to create toast")
+                return
+            }
+            return
+        }
+        guard let _ = ToastView.showText(!textForToast.isEmpty ? textForToast : "Please input text!", image: image, imagePosition: imagePostion) else {
+            print("Failed to create toast")
+            return
+        }
+    }
+    
 }
 
